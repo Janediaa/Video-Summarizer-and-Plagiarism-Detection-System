@@ -1,0 +1,69 @@
+# Python virtual envs
+.venv/
+venv/
+ENV/
+env/
+
+# Python caches and artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.python-version
+.mypy_cache/
+.pytest_cache/
+
+# Node modules and logs (root and subprojects)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log
+
+# Build / output
+dist/
+build/
+out/
+
+# Frontend specific
+minor-final/frontend/dist/
+
+# Local environment files / secrets
+.env
+**/.env
+
+# Service account / credential files (explicit sensitive files)
+minor-final/backend/sharp-starlight-472906-f7-07a9ef7d6329.json
+# Generic patterns for credential files (optional)
+*.key.json
+*-credentials.json
+*-service-account.json
+*-starlight-*.json
+
+# Uploaded user files
+**/uploads/
+
+# Large model artifacts and tokenizer files (do not track large binaries)
+fine_tuned_sbert_scored/*.safetensors
+fine_tuned_sbert_scored/model.safetensors
+fine_tuned_sbert_scored/tokenizer.json
+fine_tuned_sbert_scored/tokenizer_config.json
+fine_tuned_sbert_scored/special_tokens_map.json
+fine_tuned_sbert_scored/vocab.txt
+fine_tuned_sbert_scored/*.csv
+
+# Logs, coverage, testing
+logs/
+*.log
+coverage/
+.coverage
+
+# IDE / OS files
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln
+.DS_Store
+Thumbs.db
