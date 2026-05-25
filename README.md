@@ -1,4 +1,4 @@
-# Multi-Component Transcript, Summarization & SBERT Plagiarism Project
+# Video Summarizer and Plagiarism Detection Project
 
 A lightweight multi-component project that transcribes audio, summarizes transcripts (locally or via Gemini), and checks summary similarity/plagiarism using a fine-tuned SBERT model.
 
@@ -84,33 +84,9 @@ npx serve .
 ```
 - Ensure backend is running and CORS is allowed.
 
-## Environment & security notes
-- Do NOT commit `fine_tuned_sbert_scored/model.safetensors` or service-account JSONs to public repos.
-- Add `.env` and credential files to `.gitignore`.
-- The backend expects Google Cloud credentials for GCS/long-running Speech-to-Text; set `GOOGLE_APPLICATION_CREDENTIALS` if needed.
-
-## Quick curl examples
-- Transcribe:
-```
-curl -F "file=@my_audio.mp4" http://localhost:1330/transcribe
-```
-- Summarize:
-```
-curl -X POST -H "Content-Type: application/json" -d '{"text":"<long transcript>","mode":"local","bullets":5}' http://localhost:1330/summarize
-```
-- Direct SBERT plagiarism check:
-```
-curl -X POST -H "Content-Type: application/json" -d '{"summary":"text to check","sources":["ref1","ref2"]}' http://127.0.0.1:5001/check_plagiarism
-```
 
 ## Troubleshooting
 - Model load errors: confirm `fine_tuned_sbert_scored/` is present and contains model files; check CPU vs GPU `torch` wheel compatibility.
 - Google Speech errors: verify `GCS_BUCKET_NAME`, service account permissions, and `GOOGLE_APPLICATION_CREDENTIALS`.
 - Large installs: `torch` and some ML deps may require more disk/time.
 
-## License & acknowledgements
-- Verify third-party licenses for included models and libraries before distribution.
-
----
-
-If you want, I can also add a concise Quickstart or a developer-focused README variant.
